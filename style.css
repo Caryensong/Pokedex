@@ -1,0 +1,48 @@
+body{
+   margin: 0;
+   scroll-behavior: smooth;
+   background-color:#ffff;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header{
+   background-color: #af1d12;
+   height: 50px;
+   color: #ffff;
+   display: flex;
+   gap: 8px;
+   padding: 10px;
+   align-items: center;
+}
+
+header img{
+   width: 40px;
+   object-fit:contain;
+}
+
+nav{
+   background-color: #000000;
+   height: 50px;
+   display: flex;
+   justify-content: center;
+}
+
+.input_box{
+position: absolute;
+top: 15px;
+width: 145px;
+height: 140px;
+background-color: #ffff;
+border-radius: 100%;
+border: 15px solid #000000;
+}
+
+input{
+position: absolute;
+top: 50px;
+width: 120px;
+border: none;
+margin-left: 10px;
+padding-top: 5px;
+padding-bottom: 5px;
+}
