@@ -48,8 +48,7 @@ padding-bottom: 5px;
 }
 
 .main_container{
-   background-color: rgb(211, 159, 159);
-   margin: 80px 20px 50px 20px;
+   margin: 88px 20px 50px 20px;
    display: flex;
    justify-content: center;
    flex-wrap: wrap;
