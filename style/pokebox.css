@@ -3,9 +3,9 @@
   width: 250px;
   height: 180px;
   border-radius: 10px;
-  /* border: 2px solid rgb(223, 182, 49); */
   z-index: 1;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 .box_headline {
   height: 50px;
@@ -75,17 +75,18 @@
 }
 
 .water{
-   background-color: #94b7d6;
    background-image: linear-gradient(to right,#94b7d6 , rgb(61, 88, 128));
 }
 .fire{
-   background-color: #f59842;
    background-image: linear-gradient(to right, #f59842 , rgb(253, 71, 71));
 }
 
 .bug{
-   background-color: rgb(72, 168, 72);
    background-image: linear-gradient(to right, rgb(72, 168, 72) , rgb(157, 197, 10));
+}
+.normal{
+   background-color: rgb(151, 130, 7);
+   background-image: linear-gradient(to right, rgb(245, 188, 83) , rgb(156, 62, 18));
 }
 
 .grass_element{
@@ -107,8 +108,11 @@
 }
 
 .flying_element{background-color: rgb(156, 208, 243);
-
 }
+
+.normal_element{background-color: rgb(228, 172, 89);
+}
+
 
 .element_content{
    display: flex

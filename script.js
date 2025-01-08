@@ -9,7 +9,7 @@ function init(){
 
 async function fetchDataJson() { 
    let mainRef = document.getElementById('mainContainer');
-   let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=15&offset=0");
+   let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=18&offset=0");
    let responseAsJson = await response.json();
    pokedexArr = responseAsJson.results;
   
