@@ -6,7 +6,7 @@ function init(){
 }
 
 async function fetchDataJson() {
-   let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0");
+   let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=15&offset=0");
    let responseAsJson = await response.json();
    pokedexArr = responseAsJson.results;
    let mainRef = document.getElementById('mainContainer');
@@ -26,10 +26,10 @@ function  getPokedexTemplate(pokemon, i, img, type){
    return `
    <div class="pokemon_box">
            <div class="box_headline"></div>
-            <div class="pokeimg_bg"><img src="${img.front_default}" alt="Pokemon"></div>   
+            <div class="pokeimg_bg ${type.name}"><img src="${img.front_default}" alt="Pokemon"></div>   
              <span class="poke_Name">#${i +1} ${pokemon.name}</span>
 
              <div id="elementContent">
-               <div class="element_ball"><img src="./assets/icon/${type.name}_icon.png" alt="fire"></div>
+               <div class="element_ball ${type.name}"><img src="./assets/icon/${type.name}_icon.png" alt="${type.name}"></div>
              </div>`
 }
