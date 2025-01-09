@@ -24,7 +24,6 @@ async function fetchDataJson() {
       mainRef.innerHTML += getPokedexTemplate(pokemon, i, pokeImgArr, pokeType);
       fetchTypeElementJson(i);
    };
-    
 }
 
 function fetchTypeElementJson(index){
