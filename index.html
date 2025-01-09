@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="shortcut icon" href="./assets/icon/pokemon_star.png" type="image/x-icon">
-   <title>Pokedex</title>
-   <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="./style/pokebox.css">
-   <link rel="stylesheet" href="./style/pokemon-card.css">
-   <script src="./script.js"></script>
-   <script src="./script/template.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./assets/icon/pokemon_star.png"
+      type="image/x-icon"
+    />
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style/pokebox.css" />
+    <link rel="stylesheet" href="./style/pokemon-card.css" />
+    <script src="./script.js"></script>
+    <script src="./script/template.js"></script>
+  </head>
+  <body onload="init()">
+    <section class="navbar">
+      <header>
+        <img src="./assets/icon/Logo_ball.png" alt="Logo" />
+        <h4>POKEDEX</h4>
+      </header>
 
-</head>
-<body onload="init()">
-   <section class="navbar">
-   <header>
-      <img src="./assets/icon/Logo_ball.png" alt="Logo">
-      <h4>POKEDEX</h4>
-   </header>
+      <nav>
+        <div class="input_box">
+          <input type="text" placeholder=" search" />
+        </div>
+      </nav>
+    </section>
 
-   <nav>
-      <div class="input_box">
-         <input type="text" placeholder=" search">
-      </div>
-   </nav>
-</section>
-
-   <section>
+    <section>
       <div id="mainContainer" class="main_container"></div>
-   </section>
-</body>
+    </section>
+
+
+   
+    <section id="pokemCardsContainer" class="poke_cards_container">
+      <div class="poke_cards">
+
+      </div>
+    </section>
+    
+
+  </body>
 </html>
