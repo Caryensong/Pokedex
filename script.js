@@ -9,7 +9,7 @@ function init(){
 
 async function fetchDataJson() { 
    let mainRef = document.getElementById('mainContainer');
-   let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=23&offset=0");
+   let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=24&offset=0");
    let responseAsJson = await response.json();
    pokedexArr = responseAsJson.results;
   
@@ -34,4 +34,16 @@ function fetchTypeElementJson(index){
       console.log(pokeIndexArr.types);
       typeRef.innerHTML += getPokeElementTemplate(type);
    }
+}
+
+ async function openCard(i) {
+   let cardContentRef = document.getElementById('pokemCardsContainer');
+   cardContentRef.classList.remove("display_none");
+   let pokeIndex= await fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`);
+   pokeIndexArr = await pokeIndex.json();
+   pokeImgArr = pokeIndexArr.sprites.other.dream_world;
+   pokeType = pokeIndexArr.types[0].type;
+   let pokemon = pokedexArr[i];
+
+   cardContentRef.innerHTML += getPokeCardTemplate(pokemon, pokeImgArr, pokeIndexArr, pokeType);
 }
