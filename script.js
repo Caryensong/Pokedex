@@ -44,6 +44,16 @@ function fetchTypeElementJson(index){
    pokeImgArr = pokeIndexArr.sprites.other.dream_world;
    pokeType = pokeIndexArr.types[0].type;
    let pokemon = pokedexArr[i];
+   cardContentRef.innerHTML += getPokeCardTemplate(i, pokemon, pokeImgArr, pokeIndexArr, pokeType);
+   fetchCardTypeElementJson(i);
+}
 
-   cardContentRef.innerHTML += getPokeCardTemplate(pokemon, pokeImgArr, pokeIndexArr, pokeType);
+function fetchCardTypeElementJson(index){
+   let typeCardRef = document.getElementById(`elements_type${index}`);
+   for (let i = 0; i < pokeIndexArr.types.length; i++) {
+      let poketypeElements = pokeIndexArr.types;
+      let type = poketypeElements[i].type;
+      console.log(pokeIndexArr.types);
+      typeCardRef.innerHTML += getCardElementTemplate(type);
+   }
 }

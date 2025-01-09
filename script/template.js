@@ -17,7 +17,13 @@ function getPokeElementTemplate(type){
    `
 }
 
- function getPokeCardTemplate(pokemon, pokeImgArr, pokeIndexArr, type){
+function getCardElementTemplate(type){
+   return `
+   <div class="card_element ${type.name}_element"><img src="./assets/icon/${type.name}_icon.png" alt="${type.name}"></div>
+`
+}
+
+ function getPokeCardTemplate(i, pokemon, pokeImgArr, pokeIndexArr, type){
    return `
    <img class="back_file hover" src="./assets/icon/back_icon.png" alt="back">
       
@@ -25,7 +31,7 @@ function getPokeElementTemplate(type){
       <div class="poke_cards">
          
          <div class="poke_name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</div>
-
+         
          <div class="card_nav ${type.name}_element">  
             <a href="#">About</a>
             <a href="#">Base Status</a>
@@ -56,6 +62,7 @@ function getPokeElementTemplate(type){
       </div>
 
       <img class="next_file hover" src="./assets/icon/next_icon.png" alt="next">
-   
+
+      <div id="elements_type${i}" class="cards_content"></div>
    `
  }
