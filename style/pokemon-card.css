@@ -1,7 +1,7 @@
 .poke_cards_container{
 position: fixed;
 top: 0;
-background-color: #0e5d6377;
+background-color: #148d83af;
 width: 100%;
 height: 100%;
 z-index: 3;
@@ -62,6 +62,7 @@ a{
 a:hover{
    color:  rgb(238, 212, 65);
    text-decoration:underline;
+   transition: all 225ms;
 }
 
 .content_box{
@@ -87,4 +88,22 @@ a:hover{
 
 .display_none{
    display: none;
+}
+
+.back_file{
+   position: relative;
+   top:-260px;
+   left: 200px;
+   cursor: pointer;
+}
+.next_file{
+   position: relative;
+   top:260px;
+   right: 190px;
+   cursor: pointer;
+}
+.hover:hover{
+   background-color: #eee38575;
+   border-radius: 100%;
+   transition: all 225ms;
 }
