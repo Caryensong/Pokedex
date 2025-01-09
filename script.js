@@ -3,6 +3,8 @@ let pokeImgArr =[];
 let pokeIndexArr =[];
 let pokeTypeArr = [];
 
+let currentIndex = 0;
+
 function init(){ 
    fetchDataJson();
 }
@@ -37,6 +39,7 @@ function getTypeElementJson(index){
 }
 
  async function openCard(i) {
+   currentIndex = i;
    let cardContentRef = document.getElementById('pokemCardsContainer');
    cardContentRef.classList.remove("display_none");
    let pokeIndex= await fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`);
@@ -44,7 +47,7 @@ function getTypeElementJson(index){
    pokeImgArr = pokeIndexArr.sprites.other.dream_world;
    pokeType = pokeIndexArr.types[0].type;
    let pokemon = pokedexArr[i];
-   cardContentRef.innerHTML += getPokeCardTemplate(i, pokemon, pokeImgArr, pokeIndexArr, pokeType);
+   cardContentRef.innerHTML = getPokeCardTemplate(i, pokemon, pokeImgArr, pokeIndexArr, pokeType);
    getCardTypeElementJson(i);
    getAbilities(i);
 }
@@ -64,4 +67,18 @@ function getAbilities(i){
    for (let a = 0; a < pokeIndexArr.abilities.length; a++) {
       spanRef.innerHTML += `${pokeIndexArr.abilities[a].ability.name}, `
    }
+}
+
+function slideButton(direction){
+   currentIndex += direction;
+
+   if (currentIndex >= pokedexArr.length) {
+      currentIndex = 0;
+    }
+    if (currentIndex < 0) {
+      currentIndex = pokedexArr.length - 1;
+    }
+    openCard(currentIndex);
+    return currentIndex;
+
 }

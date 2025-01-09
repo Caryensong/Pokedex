@@ -25,7 +25,7 @@ function getCardElementTemplate(type){
 
  function getPokeCardTemplate(i, pokemon, pokeImgArr, pokeIndexArr, type){
    return `
-   <img class="back_file hover" src="./assets/icon/back_icon.png" alt="back">
+   <img onclick="slideButton(-1)" class="back_file hover" src="./assets/icon/back_icon.png" alt="back">
       
 
       <div class="poke_cards">
@@ -61,7 +61,7 @@ function getCardElementTemplate(type){
          <img class="poke_character" src="${pokeImgArr.front_default}" alt="Pokemon">
       </div>
 
-      <img class="next_file hover" src="./assets/icon/next_icon.png" alt="next">
+      <img onclick="slideButton(1)" class="next_file hover" src="./assets/icon/next_icon.png" alt="next">
 
       <div id="elements_type${i}" class="cards_content"></div>
    `
