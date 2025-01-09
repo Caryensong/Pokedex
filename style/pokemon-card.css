@@ -65,7 +65,30 @@ a:hover{
    transition: all 225ms;
 }
 
-.content_box{
+.back_file{
+   position: relative;
+   top:-260px;
+   left: 200px;
+   cursor: pointer;
+}
+.next_file{
+   position: relative;
+   top:260px;
+   right: 190px;
+   cursor: pointer;
+}
+.hover:hover{
+   background-color: #eee38575;
+   border-radius: 100%;
+   transition: all 225ms;
+}
+
+.display_none{
+   display: none;
+}
+
+/* about */
+.content_box1{
    background-color: rgba(21, 79, 131, 0.384); 
    border: 3px solid #cabd057e;
    height: 273px;
@@ -86,24 +109,36 @@ a:hover{
    font-size: 16px;
 }
 
-.display_none{
-   display: none;
+/* conent2 base Status */
+
+.content_box2{
+   background-color: rgba(21, 79, 131, 0.384); 
+   border: 3px solid #cabd057e;
+   height: 273px;
+   padding: 20px 20px 20px 120px;
+   gap: 20px;
 }
 
-.back_file{
+.block_svg{
+   width: 100%;
+   height: 10px;
+   background-color: #ffffff75;
+   padding-bottom: 10px;
    position: relative;
-   top:-260px;
-   left: 200px;
-   cursor: pointer;
+   top: -160px;
 }
-.next_file{
-   position: relative;
-   top:260px;
-   right: 190px;
-   cursor: pointer;
+/* abilities content 3 */
+
+.content_box3{
+   background-color: rgba(21, 79, 131, 0.384); 
+   border: 3px solid #cabd057e;
+   height: 273px;
+   padding: 20px 20px 20px 120px;
+   gap: 20px;
 }
-.hover:hover{
-   background-color: #eee38575;
-   border-radius: 100%;
-   transition: all 225ms;
+
+.ability_text{
+   color: #e9e9e9;
 }
+
+/* moves contemt 4 */
