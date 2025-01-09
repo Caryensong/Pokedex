@@ -20,22 +20,27 @@
   border-radius: 100%;
   position: relative;
   top: -35px;
+  height: 55px;
 }
 
 .pokeimg_b_img {
-   opacity: 10%;
+   opacity: 20%;
    position: relative;
-   top:-20px;
-   left: 90px;
-   object-fit:cover;
+   top: -145px;
+   left: 130px;
+   object-fit: cover;
+   height: 120px;
+   width: 121px;
+   filter: drop-shadow(2px -4px 9px #222);
 }
 
 .pokemon_img{
    width: 150px;
    height: 150px;
    position: relative;
-   top: -150px;
-   left: 100px;
+   top: -270px;
+   left: 65px;
+   filter: drop-shadow(5px 5px 5px #222);
 }
 
 .element_ball {
@@ -58,7 +63,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  top: -160px;
+  top: -270px;
   font-size: 20px;
   font-weight: bolder;
 }
@@ -116,10 +121,9 @@
 
 
 .element_content{
-   display: flex
-   ;
-       justify-content: center;
-       position: relative;
-       top: -150px;
+   display: flex;
+   justify-content: center;
+   position: relative;
+   top: -265px;
 
 }
