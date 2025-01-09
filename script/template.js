@@ -52,7 +52,7 @@ function getCardElementTemplate(type){
                <span class="span_text">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</span>
                <span class="span_text">${pokeIndexArr.height} m</span>
                <span class="span_text">${pokeIndexArr.weight} kg</span>
-               <span class="span_text">${pokeIndexArr.abilities[0].ability.name},   </span>
+               <span id="abilitiesSpan${i}" class="span_text"></span>
             </div>
 
          </div>

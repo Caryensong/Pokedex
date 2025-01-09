@@ -22,11 +22,11 @@ async function fetchDataJson() {
       pokeType = pokeIndexArr.types[0].type;
       let pokemon = pokedexArr[i];
       mainRef.innerHTML += getPokedexTemplate(pokemon, i, pokeImgArr, pokeType);
-      fetchTypeElementJson(i);
+      getTypeElementJson(i);
    };
 }
 
-function fetchTypeElementJson(index){
+function getTypeElementJson(index){
    let typeRef = document.getElementById(`elementContent${index}`);
    for (let e = 0; e < pokeIndexArr.types.length; e++) {
       let poketypeElements = pokeIndexArr.types;
@@ -45,15 +45,23 @@ function fetchTypeElementJson(index){
    pokeType = pokeIndexArr.types[0].type;
    let pokemon = pokedexArr[i];
    cardContentRef.innerHTML += getPokeCardTemplate(i, pokemon, pokeImgArr, pokeIndexArr, pokeType);
-   fetchCardTypeElementJson(i);
+   getCardTypeElementJson(i);
+   getAbilities(i);
 }
 
-function fetchCardTypeElementJson(index){
+function getCardTypeElementJson(index){
    let typeCardRef = document.getElementById(`elements_type${index}`);
    for (let i = 0; i < pokeIndexArr.types.length; i++) {
       let poketypeElements = pokeIndexArr.types;
       let type = poketypeElements[i].type;
       console.log(pokeIndexArr.types);
       typeCardRef.innerHTML += getCardElementTemplate(type);
+   }
+}
+
+function getAbilities(i){
+   let spanRef = document.getElementById(`abilitiesSpan${i}`);
+   for (let a = 0; a < pokeIndexArr.abilities.length; a++) {
+      spanRef.innerHTML += `${pokeIndexArr.abilities[a].ability.name}, `
    }
 }
