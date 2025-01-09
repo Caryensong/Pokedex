@@ -16,7 +16,9 @@ async function fetchDataJson() {
    for (let i = 0; i < pokedexArr.length; i++) {
       let pokeIndex= await fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`);
       pokeIndexArr = await pokeIndex.json();
-      pokeImgArr = pokeIndexArr.sprites;
+      pokeImgArr = pokeIndexArr.sprites.other.dream_world;
+      console.log(pokeImgArr);
+      
       pokeType = pokeIndexArr.types[0].type;
       let pokemon = pokedexArr[i];
       mainRef.innerHTML += getPokedexTemplate(pokemon, i, pokeImgArr, pokeType);

@@ -6,6 +6,7 @@
   z-index: 1;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  margin-bottom: 30px;
 }
 .box_headline {
   height: 50px;
@@ -57,7 +58,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  top: -180px;
+  top: -160px;
   font-size: 20px;
   font-weight: bolder;
 }
