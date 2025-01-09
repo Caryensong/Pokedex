@@ -11,8 +11,34 @@ align-items: center;
 
 }
 .poke_cards{
-   width: 350px;
-   height: 500px;
-   background-color: #FFF;
+   width: 320px;
+   height: 430px;
+   background-color: #09287c70;
    border-radius: 10px;
+   border: 15px solid #071e68;
+}
+
+.poke_name{
+   color: rgb(238, 212, 65);
+   padding:10px 0 0 16px;
+   font-weight: bolder;
+}
+
+.poke_character{
+   position: relative;
+   top: -20px;
+   left: -100px;
+   filter: drop-shadow(9px 10px 40px #eee385);
+}
+
+.poke_icon{
+   opacity: 20%;
+   position: relative;
+   top: 45px;
+   left: 50px;
+   object-fit: cover;
+   height: 220px;
+   width: 221px;
+   filter: drop-shadow(2px -4px 9px #222);
+   z-index: -1;
 }
