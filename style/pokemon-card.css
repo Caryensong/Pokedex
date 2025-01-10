@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .poke_cards {
   width: 320px;
@@ -66,17 +67,13 @@ a:hover {
 }
 
 .back_file {
-  position: relative;
-  top: -260px;
-  left: 200px;
   cursor: pointer;
 }
 .next_file {
-  position: relative;
-  top: 260px;
-  right: 190px;
   cursor: pointer;
+  z-index: 100;
 }
+
 .hover:hover {
   background-color: #eee38575;
   border-radius: 100%;
@@ -87,8 +84,8 @@ a:hover {
   display: flex;
   gap: 5px;
   position: relative;
-  top: -180px;
-  left: -165px;
+  top: -480px;
+  left: 100px;
   flex-direction: row-reverse;
 }
 .card_element {
@@ -131,8 +128,8 @@ a:hover {
   font-weight: 700;
   font-size: 16px;
 }
-.span_text{
-   color: #ffffff;
+.span_text {
+  color: #ffffff;
 }
 
 /* conent2 base Status */
@@ -141,17 +138,30 @@ a:hover {
   background-color: rgba(21, 79, 131, 0.384);
   border: 3px solid #cabd057e;
   height: 273px;
-  padding: 20px 20px 20px 120px;
-  gap: 20px;
+  padding: 10px 10px 32px 20px;
+  display: flex;
+  gap: 3px;
 }
 
-.block_svg {
+.base_status_content {
+  display: flex;
+  flex-direction: column;
+  z-index: 200;
+  width: 80%;
+}
+
+.progressbar_box {
+  display: flex;
   width: 100%;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.progress_bar {
+  /* width: 100%; */
   height: 10px;
   background-color: #ffffff75;
   padding-bottom: 10px;
-  position: relative;
-  top: -160px;
 }
 /* abilities content 3 */
 

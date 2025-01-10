@@ -38,6 +38,8 @@ function getTypeElementJson(index){
    }
 }
 
+
+
  async function openCard(i) {
    currentIndex = i;
    let cardContentRef = document.getElementById('pokemCardsContainer');
@@ -80,5 +82,9 @@ function slideButton(direction){
     }
     openCard(currentIndex);
     return currentIndex;
+}
+
+function openBaseStatus(i){
+
 
 }

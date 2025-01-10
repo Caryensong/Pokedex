@@ -33,10 +33,10 @@ function getCardElementTemplate(type){
          <div class="poke_name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</div>
          
          <div class="card_nav ${type.name}_element">  
-            <a href="#">About</a>
-            <a href="#">Base Status</a>
-            <a href="#">Abilities</a>
-            <a href="#">Moves</a>
+            <a onclick="opencard(${i})"href="#navContent1">About</a>
+            <a onclick="openBaseStatus(${i})" href="#">Base Status</a>
+            <a onclick="openAbilities(${i})" href="#">Abilities</a>
+            <a onclick="openMoves(${i})" href="#">Moves</a>
          </div>
 
          <div id="navContent1" class="content_box1">
