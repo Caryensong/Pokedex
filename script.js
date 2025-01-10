@@ -1,8 +1,5 @@
 let pokedexArr =[];
-let pokeImgArr =[];
 let pokeIndexArr =[];
-let pokeTypeArr = [];
-
 let currentIndex = 0;
 
 function init(){ 
@@ -16,47 +13,44 @@ async function fetchDataJson() {
    pokedexArr = responseAsJson.results;
   
    for (let i = 0; i < pokedexArr.length; i++) {
-      let pokeIndex= await fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`);
-      pokeIndexArr = await pokeIndex.json();
-      pokeImgArr = pokeIndexArr.sprites.other.dream_world;
-      
-      pokeType = pokeIndexArr.types[0].type;
-      let pokemon = pokedexArr[i];
-      mainRef.innerHTML += getPokedexTemplate(pokemon, i, pokeImgArr, pokeType);
-      getTypeElementJson(i);
+      let pokeData= await fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`);
+      pokeIndexArr = await pokeData.json();
+      let pokeImg = pokeIndexArr.sprites.other.dream_world;
+      let pokeType = pokeIndexArr.types[0].type;
+
+      mainRef.innerHTML += getPokedexTemplate(pokedexArr[i], i, pokeImg, pokeType);
+      getTypeElements(i);
    };
 }
 
-function getTypeElementJson(index){
+function getTypeElements(index){
    let typeRef = document.getElementById(`elementContent${index}`);
-   for (let e = 0; e < pokeIndexArr.types.length; e++) {
-      let poketypeElements = pokeIndexArr.types;
-      let type = poketypeElements[e].type;
-      console.log(pokeIndexArr.abilities);
-      typeRef.innerHTML += getPokeElementTemplate(type);
+
+   pokeIndexArr.types.forEach(type => {
+      typeRef.innerHTML += getPokeElementTemplate(type.type);
+   }); 
    }
-}
 
  async function openCard(i) {
    currentIndex = i;
-   let cardContentRef = document.getElementById('pokemCardsContainer');
+   let cardContentRef = document.getElementById('pokeCardsContainer');
    cardContentRef.classList.remove("display_none");
-   let pokeIndex= await fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`);
-   pokeIndexArr = await pokeIndex.json();
-   pokeImgArr = pokeIndexArr.sprites.other.dream_world;
-   pokeType = pokeIndexArr.types[0].type;
-   let pokemon = pokedexArr[i];
-   cardContentRef.innerHTML = getPokeCardTemplate(i, pokemon, pokeImgArr, pokeIndexArr, pokeType);
-   getCardTypeElementJson(i);
+
+   let pokeData= await fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`);
+   pokeIndexArr = await pokeData.json();
+   let pokeImg = pokeIndexArr.sprites.other.dream_world;
+   let pokeType = pokeIndexArr.types[0].type;
+
+   cardContentRef.innerHTML = getPokeCardTemplate(i, pokedexArr[i], pokeImg, pokeIndexArr, pokeType);
+   getCardTypeElements(i);
    getAbilities(i);
 }
 
-function getCardTypeElementJson(index){
+function getCardTypeElements(index){
    let typeCardRef = document.getElementById(`elements_type${index}`);
    for (let i = 0; i < pokeIndexArr.types.length; i++) {
       let poketypeElements = pokeIndexArr.types;
       let type = poketypeElements[i].type;
-      console.log(pokeIndexArr.types);
       typeCardRef.innerHTML += getCardElementTemplate(type);
    }
 }
@@ -70,49 +64,49 @@ function getAbilities(i){
 
 function slideButton(direction){
    currentIndex += direction;
-
    if (currentIndex >= pokedexArr.length) {
       currentIndex = 0;
     }
-    if (currentIndex < 0) {
+   if (currentIndex < 0) {
       currentIndex = pokedexArr.length - 1;
-    }
-    openCard(currentIndex);
-    return currentIndex;
+   }
+   openCard(currentIndex);
+   return currentIndex;
 }
 
 function openBaseStatus(i){
-   let aboutRef = document.getElementById('navContent1');
-   let baseStatusRef = document.getElementById('navContent2');
-   let abilitiesRef = document.getElementById('navContent3');
+   const { aboutRef, baseStatusRef, abilitiesRef, movesRef } = navContentID();
+
    aboutRef.classList.remove("content_box1");
    abilitiesRef.classList.remove("content_box3")
    aboutRef.classList.add("display_none");
    abilitiesRef.classList.add("display_none");
    baseStatusRef.classList.add("content_box2");
+   movesRef.classList.remove("content_box4");
+   movesRef.classList.add("display_none");
    let baseName = document.getElementsByClassName("base_status_content")[0];
    let progressBar = document.getElementsByClassName("progressbar_box")[0];
    baseName.innerHTML ="";
    progressBar.innerHTML ="";
 
 
-   for (let bs = 0; bs < pokeIndexArr.stats.length; bs++) {
-      let stat = pokeIndexArr.stats[bs];
+   pokeIndexArr.stats.forEach(stat => {
       baseName.innerHTML += getBaseNameTemplate(stat);
-      progressBar.innerHTML +=getBaseProgressbarTemplate(stat);
-   }
+      progressBar.innerHTML += getBaseProgressbarTemplate(stat);
+  });
 }
 
 async function openAbilities(i){
-   let aboutRef = document.getElementById('navContent1');
-   let baseStatusRef = document.getElementById('navContent2');
-   let abilitiesRef = document.getElementById('navContent3');
+   const { aboutRef, baseStatusRef, abilitiesRef, movesRef } = navContentID();
+
    aboutRef.classList.remove("content_box1");
    aboutRef.classList.add("display_none");
    baseStatusRef.classList.remove("content_box2");
    baseStatusRef.classList.add("display_none");
    abilitiesRef.classList.add("content_box3");
    abilitiesRef.classList.remove("display_none");
+   movesRef.classList.remove("content_box4");
+   movesRef.classList.add("display_none");
 
    abilitiesRef.innerHTML = "";
 
@@ -124,15 +118,34 @@ async function openAbilities(i){
 }
 
 async function fetchAbilitiesDataJson(ability) {
-   let effects =[];
-      let abilityURL = ability.ability.url;
-      let response = await fetch(abilityURL);
+      let response = await fetch(ability.ability.url);
       let responseAsJson = await response.json();
-      let effect = responseAsJson.effect_entries[1].short_effect;   
-      effects.push(effect);
- return effects;
+      return [responseAsJson.effect_entries[1].short_effect];   
 }
 
 function openMoves(i){
+   const { aboutRef, baseStatusRef, abilitiesRef, movesRef } = navContentID();
+   
+   let movesBox = document.getElementById('moveBox');
+   aboutRef.classList.remove("content_box1");
+   aboutRef.classList.add("display_none");
+   baseStatusRef.classList.remove("content_box2");
+   baseStatusRef.classList.add("display_none");
+   abilitiesRef.classList.remove("content_box3");
+   abilitiesRef.classList.add("display_none");
+   movesRef.classList.add("content_box4");
+   movesRef.classList.remove("display_none");
 
+   pokeIndexArr.moves.forEach(move=> {
+   movesBox.innerHTML += getMovesTemplate(move);
+   });
+}
+
+function navContentID() {
+   return {
+       aboutRef: document.getElementById('navContent1'),
+       baseStatusRef: document.getElementById('navContent2'),
+       abilitiesRef: document.getElementById('navContent3'),
+       movesRef: document.getElementById('navContent4'),
+   };
 }

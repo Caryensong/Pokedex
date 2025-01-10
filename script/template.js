@@ -23,7 +23,7 @@ function getCardElementTemplate(type){
 `
 }
 
- function getPokeCardTemplate(i, pokemon, pokeImgArr, pokeIndexArr, type){
+ function getPokeCardTemplate(i, pokemon, pokeImg, pokeIndexArr, type){
    return `
    <img onclick="slideButton(-1)" class="back_file hover" src="./assets/icon/back_icon.png" alt="back">
       
@@ -61,8 +61,18 @@ function getCardElementTemplate(type){
 
          <div id="navContent3" class=""></div>
 
+         <div id="navContent4" class="display_none">
+            <div id="moveConent">
+               <div class="span_content_title">
+               <span class="span_title">Moves</span>
+               <div id="moveBox"></div>
+            </div>
+         </div>
+
+         </div>
+
             <img class="poke_icon" src="./assets/icon/${type.name}_icon.png">
-            <img class="poke_character" src="${pokeImgArr.front_default}" alt="Pokemon">
+            <img class="poke_character" src="${pokeImg.front_default}" alt="Pokemon">
          </div>
 
       <img onclick="slideButton(1)" class="next_file hover" src="./assets/icon/next_icon.png" alt="next">
@@ -85,5 +95,11 @@ function getCardElementTemplate(type){
       <span class="abilities_title">${ability}</span>
       <span class="ability_text">${effect}</span>
    </div>
+   `
+ }
+
+ function getMovesTemplate(move){
+   return`
+   <span class="move_text">${move.move.name},</span>
    `
  }
