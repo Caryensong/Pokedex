@@ -92,6 +92,9 @@ function openBaseStatus(i){
    baseStatusRef.classList.add("content_box2");
    let baseName = document.getElementsByClassName("base_status_content")[0];
    let progressBar = document.getElementsByClassName("progressbar_box")[0];
+   baseName.innerHTML ="";
+   progressBar.innerHTML ="";
+
 
    for (let bs = 0; bs < pokeIndexArr.stats.length; bs++) {
       let stat = pokeIndexArr.stats[bs];
@@ -110,6 +113,8 @@ async function openAbilities(i){
    baseStatusRef.classList.add("display_none");
    abilitiesRef.classList.add("content_box3");
    abilitiesRef.classList.remove("display_none");
+
+   abilitiesRef.innerHTML = "";
 
    for (let a = 0; a < pokeIndexArr.abilities.length; a++) {
       let ability = pokeIndexArr.abilities[a].ability.name;
