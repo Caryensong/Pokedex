@@ -27,7 +27,6 @@ function getCardElementTemplate(type){
    return `
    <img onclick="slideButton(-1)" class="back_file hover" src="./assets/icon/back_icon.png" alt="back">
       
-
       <div class="poke_cards">
          
          <div class="poke_name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</div>
@@ -40,7 +39,6 @@ function getCardElementTemplate(type){
          </div>
 
          <div id="navContent1" class="content_box1">
-
             <div class="span_content_title">
             <span class="span_title">Species</span>
             <span class="span_title">Height</span>
@@ -54,15 +52,27 @@ function getCardElementTemplate(type){
                <span class="span_text">${pokeIndexArr.weight} kg</span>
                <span id="abilitiesSpan${i}" class="span_text"></span>
             </div>
-
          </div>
 
-         <img class="poke_icon" src="./assets/icon/${type.name}_icon.png">
-         <img class="poke_character" src="${pokeImgArr.front_default}" alt="Pokemon">
-      </div>
+         <div id="navContent2" class="">
+          <div class="base_status_content"></div>
+          <div class="progressbar_box"></div>
+         </div>
+
+            <img class="poke_icon" src="./assets/icon/${type.name}_icon.png">
+            <img class="poke_character" src="${pokeImgArr.front_default}" alt="Pokemon">
+         </div>
 
       <img onclick="slideButton(1)" class="next_file hover" src="./assets/icon/next_icon.png" alt="next">
 
       <div id="elements_type${i}" class="cards_content"></div>
    `
+ }
+
+ function getBaseNameTemplate(stat){
+   return `<span class="span_title">${stat.stat.name}</span>`
+ }
+
+ function getBaseProgressbarTemplate(stat){
+   return`<div class="progress_bar"style="width: ${stat.base_stat}%">${stat.base_stat}%</div>`
  }

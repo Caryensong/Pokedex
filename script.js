@@ -85,6 +85,17 @@ function slideButton(direction){
 }
 
 function openBaseStatus(i){
+   let aboutRef = document.getElementById('navContent1');
+   let baseStatusRef = document.getElementById('navContent2');
+   aboutRef.classList.remove("content_box1");
+   aboutRef.classList.add("display_none");
+   baseStatusRef.classList.add("content_box2");
+   let baseName = document.getElementsByClassName("base_status_content")[0];
+   let progressBar = document.getElementsByClassName("progressbar_box")[0];
 
-
+   for (let bs = 0; bs < pokeIndexArr.stats.length; bs++) {
+      let stat = pokeIndexArr.stats[bs];
+      baseName.innerHTML += getBaseNameTemplate(stat);
+      progressBar.innerHTML +=getBaseProgressbarTemplate(stat);
+   }
 }
