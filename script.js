@@ -100,7 +100,7 @@ function openBaseStatus(i){
    }
 }
 
-function openAbilities(i){
+async function openAbilities(i){
    let aboutRef = document.getElementById('navContent1');
    let baseStatusRef = document.getElementById('navContent2');
    let abilitiesRef = document.getElementById('navContent3');
@@ -113,8 +113,19 @@ function openAbilities(i){
 
    for (let a = 0; a < pokeIndexArr.abilities.length; a++) {
       let ability = pokeIndexArr.abilities[a].ability.name;
-      abilitiesRef.innerHTML += getAbilitiesTemmplate(ability);
+      let effects = await fetchAbilitiesDataJson(pokeIndexArr.abilities[a]);
+      abilitiesRef.innerHTML += getAbilitiesTemmplate(ability, effects);
    }
+}
+
+async function fetchAbilitiesDataJson(ability) {
+   let effects =[];
+      let abilityURL = ability.ability.url;
+      let response = await fetch(abilityURL);
+      let responseAsJson = await response.json();
+      let effect = responseAsJson.effect_entries[1].short_effect;   
+      effects.push(effect);
+ return effects;
 }
 
 function openMoves(i){

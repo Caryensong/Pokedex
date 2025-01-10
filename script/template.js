@@ -79,11 +79,11 @@ function getCardElementTemplate(type){
    return`<div class="progress_bar"style="width: ${stat.base_stat}%">${stat.base_stat}%</div>`
  }
 
- function getAbilitiesTemmplate(ability){
+ function getAbilitiesTemmplate(ability, effect){
    return`
    <div class="abilites_content_title">
       <span class="span_title">${ability}</span>
-      <span class="ability_text">https://pokeapi.co/api/v2/ability/65/ hihio</span>
+      <span class="ability_text">${effect}</span>
    </div>
    `
  }
