@@ -32,7 +32,7 @@ function getCardElementTemplate(type){
          <div class="poke_name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</div>
          
          <div class="card_nav ${type.name}_element">  
-            <a onclick="opencard(${i})"href="#navContent1">About</a>
+            <a onclick="openCard(${i})"href="#navContent1">About</a>
             <a onclick="openBaseStatus(${i})" href="#">Base Status</a>
             <a onclick="openAbilities(${i})" href="#">Abilities</a>
             <a onclick="openMoves(${i})" href="#">Moves</a>
@@ -82,7 +82,7 @@ function getCardElementTemplate(type){
  function getAbilitiesTemmplate(ability, effect){
    return`
    <div class="abilites_content_title">
-      <span class="span_title">${ability}</span>
+      <span class="abilities_title">${ability}</span>
       <span class="ability_text">${effect}</span>
    </div>
    `
