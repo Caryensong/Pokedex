@@ -177,12 +177,12 @@ a:hover {
 
 .ability_text {
   color: #e9e9e9;
+  z-index: 2;
 }
 
 .abilites_content_title {
   display: flex;
   flex-direction: column;
-  gap: 1px;
 }
 
 /* moves contemt 4 */

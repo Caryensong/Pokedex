@@ -84,8 +84,11 @@ function slideButton(direction){
 function openBaseStatus(i){
    let aboutRef = document.getElementById('navContent1');
    let baseStatusRef = document.getElementById('navContent2');
+   let abilitiesRef = document.getElementById('navContent3');
    aboutRef.classList.remove("content_box1");
+   abilitiesRef.classList.remove("content_box3")
    aboutRef.classList.add("display_none");
+   abilitiesRef.classList.add("display_none");
    baseStatusRef.classList.add("content_box2");
    let baseName = document.getElementsByClassName("base_status_content")[0];
    let progressBar = document.getElementsByClassName("progressbar_box")[0];
@@ -105,6 +108,13 @@ function openAbilities(i){
    aboutRef.classList.add("display_none");
    baseStatusRef.classList.remove("content_box2");
    baseStatusRef.classList.add("display_none");
+   abilitiesRef.classList.add("content_box3");
+   abilitiesRef.classList.remove("display_none");
+
+   for (let a = 0; a < pokeIndexArr.abilities.length; a++) {
+      let ability = pokeIndexArr.abilities[a].ability.name;
+      abilitiesRef.innerHTML += getAbilitiesTemmplate(ability);
+   }
 }
 
 function openMoves(i){
