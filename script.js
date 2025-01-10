@@ -19,7 +19,6 @@ async function fetchDataJson() {
       let pokeIndex= await fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`);
       pokeIndexArr = await pokeIndex.json();
       pokeImgArr = pokeIndexArr.sprites.other.dream_world;
-      console.log(pokeImgArr);
       
       pokeType = pokeIndexArr.types[0].type;
       let pokemon = pokedexArr[i];
@@ -33,12 +32,10 @@ function getTypeElementJson(index){
    for (let e = 0; e < pokeIndexArr.types.length; e++) {
       let poketypeElements = pokeIndexArr.types;
       let type = poketypeElements[e].type;
-      console.log(pokeIndexArr.types);
+      console.log(pokeIndexArr.abilities);
       typeRef.innerHTML += getPokeElementTemplate(type);
    }
 }
-
-
 
  async function openCard(i) {
    currentIndex = i;
@@ -98,4 +95,18 @@ function openBaseStatus(i){
       baseName.innerHTML += getBaseNameTemplate(stat);
       progressBar.innerHTML +=getBaseProgressbarTemplate(stat);
    }
+}
+
+function openAbilities(i){
+   let aboutRef = document.getElementById('navContent1');
+   let baseStatusRef = document.getElementById('navContent2');
+   let abilitiesRef = document.getElementById('navContent3');
+   aboutRef.classList.remove("content_box1");
+   aboutRef.classList.add("display_none");
+   baseStatusRef.classList.remove("content_box2");
+   baseStatusRef.classList.add("display_none");
+}
+
+function openMoves(i){
+
 }

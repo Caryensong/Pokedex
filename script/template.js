@@ -59,6 +59,8 @@ function getCardElementTemplate(type){
           <div class="progressbar_box"></div>
          </div>
 
+         <div id="navContent3" class=""></div>
+
             <img class="poke_icon" src="./assets/icon/${type.name}_icon.png">
             <img class="poke_character" src="${pokeImgArr.front_default}" alt="Pokemon">
          </div>
@@ -75,4 +77,13 @@ function getCardElementTemplate(type){
 
  function getBaseProgressbarTemplate(stat){
    return`<div class="progress_bar"style="width: ${stat.base_stat}%">${stat.base_stat}%</div>`
+ }
+
+ function getAbilitiesTemmplate(){
+   return`
+   <div class="abilites_content_title">
+      <span class="span_title">overgrow</span>
+      <span class="ability_text">https://pokeapi.co/api/v2/ability/65/ hihio</span>
+   </div>
+   `
  }
