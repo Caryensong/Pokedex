@@ -43,6 +43,15 @@
    filter: drop-shadow(5px 5px 5px #222);
 }
 
+.pokemon_img:hover{
+   top: -274px;
+   filter: drop-shadow(1px 1px 5px #dacb07);
+}
+
+.pokemon_box:hover{
+   filter: drop-shadow(5px 6px 5px #e7c52dce);
+}
+
 .element_ball {
   border-radius: 20px;
   width: 70px;
