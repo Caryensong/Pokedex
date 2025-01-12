@@ -7,10 +7,14 @@ function init(currentPokemon){
    fetchDataJson(currentPokemon);
 }
 
-async function fetchDataJson(loadMore) { 
+function loadMore(){
+   currentPokemon += 10;
+   init(currentPokemon);  
+}
+
+async function fetchDataJson(currentPokemon) { 
    let mainRef = document.getElementById('mainContainer');
    mainRef.innerHTML= "";
-   currentPokemon = loadMore;
    let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${currentPokemon}&offset=0`);
    let responseAsJson = await response.json();
    pokedexArr = responseAsJson.results;
@@ -25,13 +29,6 @@ async function fetchDataJson(loadMore) {
       getTypeElements(i);
    };
 }
-
-function loadMore(){
-   currentPokemon += 10;
-   init(currentPokemon);
-   
-}
-
 
 function getTypeElements(index){
    let typeRef = document.getElementById(`elementContent${index}`);
@@ -105,7 +102,6 @@ function openBaseStatus(i){
    let progressBar = document.getElementsByClassName("progressbar_box")[0];
    baseName.innerHTML ="";
    progressBar.innerHTML ="";
-
 
    pokeIndexArr.stats.forEach(stat => {
       baseName.innerHTML += getBaseNameTemplate(stat);
