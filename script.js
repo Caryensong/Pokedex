@@ -8,7 +8,7 @@ function init(){
 
 async function fetchDataJson() { 
    let mainRef = document.getElementById('mainContainer');
-   let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=24&offset=0");
+   let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=60&offset=0");
    let responseAsJson = await response.json();
    pokedexArr = responseAsJson.results;
   
@@ -42,6 +42,9 @@ function getTypeElements(index){
    let pokeType = pokeIndexArr.types[0].type;
 
    cardContentRef.innerHTML = getPokeCardTemplate(i, pokedexArr[i], pokeImg, pokeIndexArr, pokeType);
+   let navElement =document.getElementById('aboutNav');
+   navElement.classList.toggle('active_btn');
+
    getCardTypeElements(i);
    getAbilities(i);
 }
@@ -75,7 +78,11 @@ function slideButton(direction){
 }
 
 function openBaseStatus(i){
-   const { aboutRef, baseStatusRef, abilitiesRef, movesRef } = navContentID();
+   const { aboutRef, baseStatusRef, abilitiesRef, movesRef, aboutNav, baseNav ,abilitiesNav ,moveNav  } = navContentID();
+   baseNav.classList.add('active_btn');
+   aboutNav.classList.remove('active_btn');
+   abilitiesNav.classList.remove('active_btn');
+   moveNav.classList.remove('active_btn');
 
    aboutRef.classList.remove("content_box1");
    abilitiesRef.classList.remove("content_box3")
@@ -97,7 +104,11 @@ function openBaseStatus(i){
 }
 
 async function openAbilities(i){
-   const { aboutRef, baseStatusRef, abilitiesRef, movesRef } = navContentID();
+   const { aboutRef, baseStatusRef, abilitiesRef, movesRef, aboutNav, baseNav ,abilitiesNav ,moveNav  } = navContentID();
+   baseNav.classList.remove('active_btn');
+   aboutNav.classList.remove('active_btn');
+   abilitiesNav.classList.add('active_btn');
+   moveNav.classList.remove('active_btn');
 
    aboutRef.classList.remove("content_box1");
    aboutRef.classList.add("display_none");
@@ -124,8 +135,12 @@ async function fetchAbilitiesDataJson(ability) {
 }
 
 function openMoves(i){
-   const { aboutRef, baseStatusRef, abilitiesRef, movesRef } = navContentID();
-   
+   const { aboutRef, baseStatusRef, abilitiesRef, movesRef, aboutNav, baseNav ,abilitiesNav ,moveNav } = navContentID();
+   baseNav.classList.remove('active_btn');
+   aboutNav.classList.remove('active_btn');
+   abilitiesNav.classList.remove('active_btn');
+   moveNav.classList.add('active_btn');
+
    let movesBox = document.getElementById('moveBox');
    aboutRef.classList.remove("content_box1");
    aboutRef.classList.add("display_none");
@@ -147,5 +162,9 @@ function navContentID() {
        baseStatusRef: document.getElementById('navContent2'),
        abilitiesRef: document.getElementById('navContent3'),
        movesRef: document.getElementById('navContent4'),
+       aboutNav: document.getElementById('aboutNav'),
+       baseNav: document.getElementById('baseNav'),
+       abilitiesNav: document.getElementById('abilitiesNav'),
+       moveNav: document.getElementById('moveNav'),
    };
 }

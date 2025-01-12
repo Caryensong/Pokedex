@@ -37,7 +37,7 @@
 }
 
 .poke_icon {
-  opacity: 6 0%;
+  opacity: 60%;
   position: relative;
   top: -320px;
   object-fit: cover;
@@ -65,6 +65,10 @@ a:hover {
   color: rgb(238, 212, 65);
   text-decoration: underline;
   transition: all 225ms;
+}
+a.active_btn{
+  color: rgb(238, 212, 65);
+  text-decoration: underline;
 }
 
 .back_file {
