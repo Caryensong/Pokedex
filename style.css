@@ -84,3 +84,17 @@ background-color: #e2e2e27a;
  ::-webkit-scrollbar-thumb:hover {
    background: #b30000; 
  }
+
+ .loadMoreContent{
+   display: flex;
+   justify-content: center;
+ }
+
+ button{
+   width: 150px;
+   padding: 10px 0 10px 0;
+   border-radius: 10px;
+   border: none;
+   background-color:#071e68dc;
+   color: #ffff;
+ }

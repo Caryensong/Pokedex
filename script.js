@@ -8,7 +8,7 @@ function init(){
 
 async function fetchDataJson() { 
    let mainRef = document.getElementById('mainContainer');
-   let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=60&offset=0");
+   let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=25&offset=0");
    let responseAsJson = await response.json();
    pokedexArr = responseAsJson.results;
   
@@ -167,4 +167,8 @@ function navContentID() {
        abilitiesNav: document.getElementById('abilitiesNav'),
        moveNav: document.getElementById('moveNav'),
    };
+}
+
+function loadMore(){
+   
 }
