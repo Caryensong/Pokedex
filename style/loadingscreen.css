@@ -1,0 +1,38 @@
+.load_screen{
+   width: 100%;
+   background-color: rgba(0, 0, 0, 0.822);
+   height: 100%;
+   position: fixed;
+   top: 0;
+   z-index: 300;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.loading_bar_content{
+ color: antiquewhite;
+ text-align: center;
+}
+
+.loadingProgressbar{
+   width: 300px;
+   height: 20px;
+   border:5px solid #b68603;
+   border-radius: 10px; 
+}
+#loadingProgressbar{
+   height: 100%;
+   background-color: #b68603;
+}
+
+.load_img{
+   width: 70px;
+   padding-top: 20px;
+}
+
+.load_img:hover{
+transition: all 0.65s;
+transform: rotateY(360deg);
+}

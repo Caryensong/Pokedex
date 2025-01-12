@@ -1,14 +1,14 @@
 let pokedexArr =[];
 let pokeIndexArr =[];
 let currentIndex = 0;
-let currentPokemon= 10;
+let currentPokemon= 20;
 
 function init(currentPokemon){ 
    fetchDataJson(currentPokemon);
 }
 
 function loadMore(){
-   currentPokemon += 10;
+   currentPokemon += 20;
    init(currentPokemon);  
 }
 

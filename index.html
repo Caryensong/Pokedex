@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="./style/pokebox.css" />
     <link rel="stylesheet" href="./style/pokemon-card.css" />
+    <link rel="stylesheet" href="./style/loadingscreen.css">
     <script src="./script.js"></script>
     <script src="./script/template.js"></script>
   </head>
-  <body onload="init(10)">
+  <body id="bodyId" onload="init(20)">  <!-- style="overflow: hidden;"  wehen scroll -->
     <section class="navbar">
       <header>
         <img src="./assets/icon/Logo_ball.png" alt="Logo" />
@@ -33,12 +34,25 @@
       <div id="mainContainer" class="main_container"></div>
     </section>
 
-    <!-- -----------pokeCard  ------------------------------- -->
+    <!------------pokeCard  ------------------------------- -->
 
     <section id="pokeCardsContainer" class="poke_cards_container display_none"></section>
 
-    <section class="loadMoreContent">
+    <!------------loadingscreen ------------------------------- -->
+    <section class="loadMoreContent" >
       <button onclick="loadMore()">Load more</button>
     </section>
+
+    <!-- <section id="loadingScreen" class="load_screen">
+      <div class="loading_bar_content">
+        <p>LOADING ...</p>
+        <div class="loadingProgressbar">
+          <div id="loadingProgressbar" style="width: 20%"></div>
+          <img class="load_img" src="./assets/loading_img.png" alt="POKEMON">
+        </div>
+      </div>
+    </section> -->
+
+
   </body>
 </html>
