@@ -1,19 +1,22 @@
 let pokedexArr =[];
 let pokeIndexArr =[];
 let currentIndex = 0;
+let currentPokemon= 10;
 
-function init(){ 
-   fetchDataJson();
+function init(currentPokemon){ 
+   fetchDataJson(currentPokemon);
 }
 
-async function fetchDataJson() { 
+async function fetchDataJson(loadMore) { 
    let mainRef = document.getElementById('mainContainer');
-   let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=25&offset=0");
+   mainRef.innerHTML= "";
+   currentPokemon = loadMore;
+   let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${currentPokemon}&offset=0`);
    let responseAsJson = await response.json();
    pokedexArr = responseAsJson.results;
   
    for (let i = 0; i < pokedexArr.length; i++) {
-      let pokeData= await fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`);
+      let pokeData= await fetch(`https://pokeapi.co/api/v2/pokemon/${i + 1}`);
       pokeIndexArr = await pokeData.json();
       let pokeImg = pokeIndexArr.sprites.other.dream_world;
       let pokeType = pokeIndexArr.types[0].type;
@@ -22,6 +25,13 @@ async function fetchDataJson() {
       getTypeElements(i);
    };
 }
+
+function loadMore(){
+   currentPokemon += 10;
+   init(currentPokemon);
+   
+}
+
 
 function getTypeElements(index){
    let typeRef = document.getElementById(`elementContent${index}`);
@@ -167,8 +177,4 @@ function navContentID() {
        abilitiesNav: document.getElementById('abilitiesNav'),
        moveNav: document.getElementById('moveNav'),
    };
-}
-
-function loadMore(){
-   
 }

@@ -97,4 +97,15 @@ background-color: #e2e2e27a;
    border: none;
    background-color:#071e68dc;
    color: #ffff;
+   transition: 225ms;
+   z-index: 200;
+ }
+
+ button:hover{
+   transform: scale(1.1);
+ 
+   box-shadow: 0 0 15px #ffee10;
+   color: #ffee10;
+   box-shadow: 0 0 5px #ffee10;
+   text-shadow: 0 0 5px #ffee10;
  }
