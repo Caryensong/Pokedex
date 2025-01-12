@@ -8,6 +8,7 @@ function init(currentPokemon){
 }
 
 function loadMore(){
+   // document.getElementById('bodyId').style.overflow="hidden";
    currentPokemon += 20;
    init(currentPokemon);  
 }
@@ -40,6 +41,7 @@ function getTypeElements(index){
 
  async function openCard(i) {
    currentIndex = i;
+   document.getElementById('bodyId').style.overflow="hidden";
    let cardContentRef = document.getElementById('pokeCardsContainer');
    cardContentRef.classList.remove("display_none");
 
