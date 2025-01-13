@@ -91,6 +91,7 @@ function getSearchValue(){
       
    }else{
       console.log('falsch');
+      
    }
    document.getElementById('searchInput').value = "";
 }

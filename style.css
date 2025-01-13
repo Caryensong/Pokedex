@@ -39,13 +39,13 @@ border: 60px solid #000000;
 
 input{
 position: absolute;
-top: 50px;
-width: 120px;
+top: 55px;
+width: 90px;
 border: none;
 margin-left: 10px;
 padding-top: 5px;
 padding-bottom: 5px;
-background-color: #e2e2e27a;
+background-color: #cecccc7a;
 }
 
 .navbar{
@@ -112,12 +112,13 @@ background-color: #e2e2e27a;
  .search_btn{
   width: 20px;
   position: relative;
-  top: 80px;
-  left: 50px;
+  top: 55px;
+  left: 110px;
   cursor: pointer; 
   object-fit:fill;
-  padding: 15px;
+  padding: 3px;
   border-radius: 9px;
+  background-color: #6866661c;
  }
  .search_btn:hover{
   width: 18px;
