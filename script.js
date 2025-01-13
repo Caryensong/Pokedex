@@ -86,12 +86,9 @@ function getSearchValue(){
    let searchValue = document.getElementById('searchInput').value.toLowerCase();
    let index = pokedexArr.findIndex(pokemon => pokemon.name.toLowerCase().includes(searchValue));
    if (index != -1) {
-      console.log('gefunden:',pokedexArr[index].name);
       openCard(index);
-      
    }else{
-      console.log('falsch');
-      
+      console.log(`keine Pokemon mit name: ${searchValue} gefunden`);
    }
    document.getElementById('searchInput').value = "";
 }

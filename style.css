@@ -126,3 +126,13 @@ background-color: #cecccc7a;
   transition: 225ms;
   background-color: #6866661c;
  }
+
+ #errorContent{
+  color: #e00a0af8;
+  position: relative;
+  top: 50px;
+  left: 5px;
+  font-size: 14px;
+  width: 135px;
+  text-align: center;
+ }
