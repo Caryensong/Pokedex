@@ -100,6 +100,10 @@ function openBaseStatus(i){
    baseStatusRef.classList.add("content_box2");
    movesRef.classList.remove("content_box4");
    movesRef.classList.add("display_none");
+   renderBaseStatus();
+}
+
+function renderBaseStatus() {
    let baseName = document.getElementsByClassName("base_status_content")[0];
    let progressBar = document.getElementsByClassName("progressbar_box")[0];
    baseName.innerHTML ="";
@@ -127,14 +131,16 @@ async function openAbilities(i){
    movesRef.classList.remove("content_box4");
    movesRef.classList.add("display_none");
 
-   abilitiesRef.innerHTML = "";
-
-   for (let a = 0; a < pokeIndexArr.abilities.length; a++) {
-      let ability = pokeIndexArr.abilities[a].ability.name;
-      let effects = await fetchAbilitiesDataJson(pokeIndexArr.abilities[a]);
-      abilitiesRef.innerHTML += getAbilitiesTemmplate(ability, effects);
-   }
+   renderAbilities(abilitiesRef);
 }
+
+async function renderAbilities(content){
+   content.innerHTML = "";
+for (let a = 0; a < pokeIndexArr.abilities.length; a++) {
+   let ability = pokeIndexArr.abilities[a].ability.name;
+   let effects = await fetchAbilitiesDataJson(pokeIndexArr.abilities[a]);
+   content.innerHTML += getAbilitiesTemmplate(ability, effects);
+}}
 
 async function fetchAbilitiesDataJson(ability) {
       let response = await fetch(ability.ability.url);
@@ -149,7 +155,6 @@ function openMoves(i){
    abilitiesNav.classList.remove('active_btn');
    moveNav.classList.add('active_btn');
 
-   let movesBox = document.getElementById('moveBox');
    aboutRef.classList.remove("content_box1");
    aboutRef.classList.add("display_none");
    baseStatusRef.classList.remove("content_box2");
@@ -159,9 +164,15 @@ function openMoves(i){
    movesRef.classList.add("content_box4");
    movesRef.classList.remove("display_none");
 
+   renderOpenMoves();
+}
+
+function renderOpenMoves() {
+   let movesBox = document.getElementById('moveBox');
+
    pokeIndexArr.moves.forEach(move=> {
-   movesBox.innerHTML += getMovesTemplate(move);
-   });
+      movesBox.innerHTML += getMovesTemplate(move);
+      });
 }
 
 function navContentID() {
