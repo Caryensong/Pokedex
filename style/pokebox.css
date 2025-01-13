@@ -117,19 +117,26 @@
 .fighting{
    background-image: linear-gradient(to right, rgb(224, 191, 141) , rgb(85, 51, 1));
 }
+.psychic{
+   background-image: linear-gradient(to right, rgb(224, 191, 141) , rgb(173, 118, 0));
+}
+.rock{
+   background-image: linear-gradient(to right, rgb(224, 191, 141) , rgb(173, 118, 0));
+}
+.ghost{
+   background-image: linear-gradient(to right, rgb(138, 85, 182) , rgb(26, 26, 26));
+}
+.ice{
+   background-image: linear-gradient(to right, rgb(138, 85, 182) , rgb(26, 26, 26));
+}
 
-
-.grass_element{
-   background-color: #46d1b1;
+.grass_element{background-color: #46d1b1;
 }
-.water_element{
-   background-color: #3e719e;
+.water_element{background-color: #3e719e;
 }
-.fire_element{
-   background-color: #fa2a2a;
+.fire_element{background-color: #fa2a2a;
 }
-.bug_element{
-   background-color: rgb(35, 128, 35);
+.bug_element{background-color: rgb(35, 128, 35);
 }
 .poison_element{background-color: rgb(60, 56, 77);
 }
@@ -145,6 +152,15 @@
 }
 .fighting_element{background-color: #6b4f02;
 }
+.psychic_element{background-color: #c99301;
+}
+.rock_element{background-color: #c99301;
+}
+.ghost_element{background-color: #272623;
+}
+.ice_element{background-color: #92dde2;
+}
+
 
 .element_content{
    display: flex;
