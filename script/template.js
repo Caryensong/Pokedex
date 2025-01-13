@@ -78,6 +78,8 @@ function getCardElementTemplate(type){
       <img onclick="slideButton(1)" class="next_file hover" src="./assets/icon/next_icon.png" alt="next">
 
       <div id="elements_type${i}" class="cards_content"></div>
+       <div onclick="closePokeCard()" id="" class="close_btn">x</div>
+     
    `
  }
 

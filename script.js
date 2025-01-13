@@ -216,3 +216,8 @@ function closeLoadingScreen(){
    document.getElementById('bodyId').style.overflow = "auto";
    loadingScreenRef.innerHTML = '';
 }
+
+function closePokeCard(){
+   let closeCardContent = document.getElementById('pokeCardsContainer');
+   closeCardContent.classList.toggle('display_none');
+}

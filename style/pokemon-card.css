@@ -85,6 +85,23 @@ a.active_btn{
   transition: all 225ms;
 }
 
+.close_btn{
+  width: 40px;
+  height: 40px;
+  color: #222;
+  font-weight: 900;
+  font-size: 50px;
+  cursor: pointer;
+  position: relative;
+  bottom: 50px; 
+  right: -5px;
+}
+
+.close_btn:hover{
+  color: #b30606;
+  transition: all 225ms;
+}
+
 .cards_content {
   display: flex;
   gap: 5px;
