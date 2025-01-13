@@ -25,7 +25,6 @@ async function fetchDataJson(currentPokemon) {
       pokeIndexArr = await pokeData.json();
       let pokeImg = pokeIndexArr.sprites.other.dream_world;
       let pokeType = pokeIndexArr.types[0].type;
-
       mainRef.innerHTML += getPokedexTemplate(pokedexArr[i], i, pokeImg, pokeType);
       getTypeElements(i);
    };
@@ -84,6 +83,14 @@ function closeLoadingScreen(){
 }
 
 function getSearchValue(){
-   let searchValue = document.getElementById('searchInput').value;
-   console.log(searchValue);
+   let searchValue = document.getElementById('searchInput').value.toLowerCase();
+   let index = pokedexArr.findIndex(pokemon => pokemon.name.toLowerCase().includes(searchValue));
+   if (index != -1) {
+      console.log('gefunden:',pokedexArr[index].name);
+      openCard(index);
+      
+   }else{
+      console.log('falsch');
+   }
+   document.getElementById('searchInput').value = "";
 }
