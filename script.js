@@ -8,7 +8,7 @@ function init(currentPokemon){
 }
 
 function loadMore(){
-   // document.getElementById('bodyId').style.overflow="hidden";
+   openLoadingScreen();
    currentPokemon += 20;
    init(currentPokemon);  
 }
@@ -175,4 +175,33 @@ function navContentID() {
        abilitiesNav: document.getElementById('abilitiesNav'),
        moveNav: document.getElementById('moveNav'),
    };
+}
+
+function openLoadingScreen(){
+   let loadingScreenRef = document.getElementById('loadingScreen');
+   loadingScreenRef.classList.add('load_screen');
+   document.getElementById('bodyId').style.overflow="hidden";
+   loadingScreenRef.innerHTML = getLoadingscreen();
+
+   let progressBar = document.getElementById('loadingProgressbar');
+   let width = 0;
+
+   let interval = setInterval (() =>{
+      width += 20;
+      progressBar.style.width +'px';
+
+      if(width >= 100){
+         clearInterval(interval);
+         setTimeout(() =>{
+            closeLoadingScreen();
+         }, 1000);
+     }
+   },1000);
+}
+
+function closeLoadingScreen(){
+   let loadingScreenRef = document.getElementById('loadingScreen');
+   loadingScreenRef.classList.remove('load_screen');
+   document.getElementById('bodyId').style.overflow = "auto";
+   loadingScreenRef.innerHTML = '';
 }

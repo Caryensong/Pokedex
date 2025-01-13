@@ -103,3 +103,15 @@ function getCardElementTemplate(type){
    <span class="move_text">${move.move.name},</span>
    `
  }
+
+ function getLoadingscreen(){
+return `
+ <div class="loading_bar_content">
+   <p>LOADING ...</p>
+   <div class="loadingProgressbar">
+      <div id="loadingProgressbar"></div>
+      <img class="load_img" src="./assets/loading_img.png" alt="POKEMON">
+   </div>
+ </div>
+`
+ }
