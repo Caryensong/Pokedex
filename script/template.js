@@ -109,7 +109,7 @@ return `
  <div class="loading_bar_content">
    <p>LOADING ...</p>
    <div class="loadingProgressbar">
-      <div id="loadingProgressbar"></div>
+      <div id="loadingProgressbar" style="width: 0;  background-color: #b68603;"></div>
       <img class="load_img" src="./assets/loading_img.png" alt="POKEMON">
    </div>
  </div>

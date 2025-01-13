@@ -187,10 +187,10 @@ function openLoadingScreen(){
    let width = 0;
 
    let interval = setInterval (() =>{
-      width += 20;
-      progressBar.style.width +'px';
+      width += 60;
+      progressBar.style.width = width + 'px'; 
 
-      if(width >= 100){
+      if(width >= 300){
          clearInterval(interval);
          setTimeout(() =>{
             closeLoadingScreen();
