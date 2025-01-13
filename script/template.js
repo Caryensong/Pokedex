@@ -112,7 +112,7 @@ return `
    <p>LOADING ...</p>
    <div class="loadingProgressbar">
       <div id="loadingProgressbar" style="width: 0;  background-color: #b68603;"></div>
-      <img class="load_img" src="./assets/loading_img.png" alt="POKEMON">
+      <img class="load_img" style="transition: 0;"src="./assets/loading_img.png" alt="POKEMON">
    </div>
  </div>
 `

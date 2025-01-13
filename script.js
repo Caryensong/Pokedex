@@ -195,11 +195,18 @@ function openLoadingScreen(){
    loadingScreenRef.innerHTML = getLoadingscreen();
 
    let progressBar = document.getElementById('loadingProgressbar');
+   let imgRotation = document.getElementsByClassName('load_img');
    let width = 0;
 
    let interval = setInterval (() =>{
       width += 60;
-      progressBar.style.width = width + 'px'; 
+      progressBar.style.width = width + 'px';
+      progressBar.style.transition = "width 1s";
+
+      for (let i = 0; i < imgRotation.length; i++) {
+         imgRotation[i].style.transform = `rotateY(${width * 6}deg)`;
+         imgRotation[i].style.transition = "transform 1s";
+     }
 
       if(width >= 300){
          clearInterval(interval);
