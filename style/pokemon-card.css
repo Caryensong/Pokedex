@@ -165,7 +165,7 @@ a.active_btn{
   background-color: rgba(21, 79, 131, 0.384);
   border: 3px solid #cabd057e;
   height: 273px;
-  padding: 10px 10px 30px 15px;
+  padding: 10px 45px 30px 15px;
   display: flex;
   gap: 3px;
 }

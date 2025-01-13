@@ -220,4 +220,5 @@ function closeLoadingScreen(){
 function closePokeCard(){
    let closeCardContent = document.getElementById('pokeCardsContainer');
    closeCardContent.classList.toggle('display_none');
+   document.getElementById('bodyId').style.overflow = "auto";
 }
