@@ -31,7 +31,7 @@
    padding-top: 20px;
 }
 
-.load_img:hover{
+.rotation{
 transition: all 0.65s;
 transform: rotateY(360deg);
 }

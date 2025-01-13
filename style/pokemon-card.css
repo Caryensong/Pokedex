@@ -174,7 +174,7 @@ a.active_btn{
   display: flex;
   flex-direction: column;
   z-index: 200;
-  width: 80%;
+  width: 90%;
 }
 
 .progressbar_box {

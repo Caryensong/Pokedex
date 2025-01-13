@@ -127,7 +127,10 @@
    background-image: linear-gradient(to right, rgb(138, 85, 182) , rgb(26, 26, 26));
 }
 .ice{
-   background-image: linear-gradient(to right, rgb(138, 85, 182) , rgb(26, 26, 26));
+   background-image: linear-gradient(to right, rgb(228, 247, 252) , rgb(0, 228, 216));
+}
+.dragon{
+   background-image: linear-gradient(to right,#94af56, rgb(2, 158, 163));
 }
 
 .grass_element{background-color: #46d1b1;
@@ -159,6 +162,10 @@
 .ghost_element{background-color: #272623;
 }
 .ice_element{background-color: #92dde2;
+}
+.steel_element{background-color: #929c9a;
+}
+.dragon_element{background-color: #94af56;
 }
 
 
