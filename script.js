@@ -82,3 +82,8 @@ function closeLoadingScreen(){
    document.getElementById('bodyId').style.overflow = "auto";
    loadingScreenRef.innerHTML = '';
 }
+
+function getSearchValue(){
+   let searchValue = document.getElementById('searchInput').value;
+   console.log(searchValue);
+}

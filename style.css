@@ -108,3 +108,20 @@ background-color: #e2e2e27a;
    box-shadow: 0 0 5px #ffee10;
    text-shadow: 0 0 5px #ffee10;
  }
+
+ .search_btn{
+  width: 20px;
+  position: relative;
+  top: 80px;
+  left: 50px;
+  cursor: pointer; 
+  object-fit:fill;
+  padding: 15px;
+  border-radius: 9px;
+ }
+ .search_btn:hover{
+  width: 18px;
+  object-fit:cover;
+  transition: 225ms;
+  background-color: #6866661c;
+ }
