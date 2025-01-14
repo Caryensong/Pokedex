@@ -132,6 +132,9 @@
 .dragon{
    background-image: linear-gradient(to right,#94af56, rgb(2, 158, 163));
 }
+.dark{
+   background-image: linear-gradient(to right,#3b3b3b, rgb(16, 71, 73));
+}
 
 .grass_element{background-color: #46d1b1;
 }
@@ -166,6 +169,8 @@
 .steel_element{background-color: #929c9a;
 }
 .dragon_element{background-color: #94af56;
+}
+.dark_element{background-color: #181817;
 }
 
 
