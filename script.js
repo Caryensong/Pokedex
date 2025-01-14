@@ -85,17 +85,24 @@ function closeLoadingScreen(){
 function getSearchValue(){
    let searchValue = document.getElementById('searchInput').value.toLowerCase();
    let errorContent = document.getElementById('errorContent');
-   let index = pokedexArr.findIndex(pokemon => pokemon.name.toLowerCase().includes(searchValue));
+   let filterValueArr = pokedexArr
+   .map((pokemon, index) => ({ pokemon, originalIndex: index })) 
+   .filter(item => item.pokemon.name.toLowerCase().includes(searchValue));
 
    if (handleEmptySearch(searchValue, errorContent)) {
       return;
    }
 
-   if (index != -1) {
-      openCard(index);
-   }else{
-      displayErrorMessage(errorContent,`"${searchValue}" not found` );
+   if (filterValueArr.length === 0) {
+      displayErrorMessage(errorContent, `"${searchValue}" not found`);
+      return;
    }
+
+
+   filterValueArr.forEach(item => {
+      let originalIndex = item.originalIndex;
+      openCard(originalIndex);  
+   });
    document.getElementById('searchInput').value = "";
 }
 
