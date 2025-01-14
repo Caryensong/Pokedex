@@ -293,6 +293,10 @@ a {
   height: 230px;
 }
 
+.content_box1 {
+  padding: 20px 20px 20px 70px;
+}
+
 .poke_cards {
   width: 280px;
   height: 390px;
