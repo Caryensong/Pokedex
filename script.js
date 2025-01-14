@@ -60,10 +60,10 @@ function renderProgressBar(progressBar, width){
 
       renderLoadingRotateY(width);
 
-      if(width >= 300){
+      if (width >= 300) {
          clearInterval(interval);
      }
-   },2500);
+ }, 100);
 }
 
 function renderLoadingRotateY(width){
