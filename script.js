@@ -82,9 +82,10 @@ function closeLoadingScreen(){
    loadingScreenRef.innerHTML = '';
 }
 
-function getSearchValue(){
+ async function getSearchValue(){
    let searchValue = document.getElementById('searchInput').value.toLowerCase();
    let errorContent = document.getElementById('errorContent');
+
    let filterValueArr = pokedexArr
    .map((pokemon, index) => ({ pokemon, originalIndex: index })) 
    .filter(item => item.pokemon.name.toLowerCase().includes(searchValue));
@@ -98,12 +99,24 @@ function getSearchValue(){
       return;
    }
 
+   showFilteredResults(filterValueArr);  
 
-   filterValueArr.forEach(item => {
-      let originalIndex = item.originalIndex;
-      openCard(originalIndex);  
-   });
    document.getElementById('searchInput').value = "";
+}
+
+async function showFilteredResults(filterValueArr) { 
+   let mainRef = document.getElementById('mainContainer');
+   mainRef.innerHTML= "";
+  
+   for (let i = 0; i < filterValueArr.length; i++) {
+      let valueIndex = filterValueArr[i].originalIndex;
+      let pokeData= await fetch(`https://pokeapi.co/api/v2/pokemon/${valueIndex + 1}`);
+      pokeIndexArr = await pokeData.json();
+      let pokeImg = pokeIndexArr.sprites.other.dream_world;
+      let pokeType = pokeIndexArr.types[0].type;
+      mainRef.innerHTML += getPokedexTemplate(pokedexArr[valueIndex], valueIndex, pokeImg, pokeType);
+      getTypeElements(valueIndex);
+   };
 }
 
 function handleEmptySearch(searchValue, errorContent){
