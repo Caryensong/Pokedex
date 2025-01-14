@@ -3,7 +3,6 @@ let pokeIndexArr =[];
 let currentIndex = 0;
 let currentPokemon= 20;
 
-
 function init() { 
    fetchDataJson();
 }

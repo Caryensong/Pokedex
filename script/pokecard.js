@@ -1,6 +1,6 @@
 
 async function openCard(i) {
-   currentIndex = i;
+   cardIndex = i;
    document.getElementById('bodyId').style.overflow="hidden";
    let cardContentRef = document.getElementById('overlay');
    cardContentRef.classList.remove("display_none");
@@ -37,15 +37,14 @@ function getAbilities(i){
 }
 
 function slideButton(direction){
-   currentIndex += direction;
-   if (currentIndex >= pokedexArr.length) {
-      currentIndex = 0;
+   cardIndex += direction;
+   if (cardIndex >= currentIndex) {
+      cardIndex = 0;
     }
-   if (currentIndex < 0) {
-      currentIndex = pokedexArr.length - 1;
+   if (cardIndex < 0) {
+      cardIndex = currentIndex -1;
    }
-   openCard(currentIndex);
-   return currentIndex;
+   openCard(cardIndex);
 }
 
 function openBaseStatus(i){
