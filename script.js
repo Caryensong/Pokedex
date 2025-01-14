@@ -4,41 +4,46 @@ let currentIndex = 0;
 let currentPokemon= 20;
 
 
-async function init(currentPokemon) { 
-   await fetchDataJson(currentPokemon);
+function init() { 
+   fetchDataJson();
 }
 
-async function loadMore() {
-   currentPokemon += 20;  
-   openLoadingScreen();
-   await init(currentPokemon);
-   closeLoadingScreen();
-}
-
-async function fetchDataJson(currentPokemon) { 
-   let mainRef = document.getElementById('mainContainer');
-   mainRef.innerHTML= "";
-   let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${currentPokemon}&offset=0`);
+async function fetchDataJson() { 
+   let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=180&offset=0`);
    let responseAsJson = await response.json();
    pokedexArr = responseAsJson.results;
   
-   for (let i = 0; i < pokedexArr.length; i++) {
+   renderPokemon(currentIndex, currentPokemon);
+}
+
+async function renderPokemon(startIndex, count) {
+   let mainRef = document.getElementById('mainContainer');
+
+   for (let i = startIndex; i < startIndex + count && i < pokedexArr.length; i++) {
       let pokeData= await fetch(`https://pokeapi.co/api/v2/pokemon/${i + 1}`);
       pokeIndexArr = await pokeData.json();
       let pokeImg = pokeIndexArr.sprites.other.dream_world;
       let pokeType = pokeIndexArr.types[0].type;
+
       mainRef.innerHTML += getPokedexTemplate(pokedexArr[i], i, pokeImg, pokeType);
-      getTypeElements(i);
+      getTypeElements(i, pokeIndexArr );
    };
+   currentIndex += count;
 }
 
-function getTypeElements(index){
+function getTypeElements(index, pokeIndexArr){
    let typeRef = document.getElementById(`elementContent${index}`);
 
    pokeIndexArr.types.forEach(type => {
       typeRef.innerHTML += getPokeElementTemplate(type.type);
    }); 
-   }
+}
+
+async function loadMore() {
+   openLoadingScreen();   
+   await renderPokemon(currentIndex, currentPokemon);
+   closeLoadingScreen();
+}
 
 function openLoadingScreen(){
    let loadingScreenRef = document.getElementById('loadingScreen');
@@ -47,23 +52,24 @@ function openLoadingScreen(){
    loadingScreenRef.innerHTML = getLoadingscreen();
 
    let progressBar = document.getElementById('loadingProgressbar');
-   let width = 0;
- 
-   renderProgressBar(progressBar, width);
+   renderProgressBar(progressBar);
 }
 
-function renderProgressBar(progressBar, width){
+function renderProgressBar(progressBar){
+   const targetWidth = 300; 
+   let width = 0;
+
    let interval = setInterval (() =>{
       width += 60;
-      progressBar.style.width = width + 'px';
-      progressBar.style.transition = "width 1s";
-
-      renderLoadingRotateY(width);
-
-      if (width >= 300) {
+      if (width >= targetWidth) {
+         width = targetWidth;
          clearInterval(interval);
-     }
- }, 100);
+   }
+   progressBar.style.width = width + 'px';
+   progressBar.style.transition = "width 1s";
+
+   renderLoadingRotateY(width);
+   }, 100);
 }
 
 function renderLoadingRotateY(width){
@@ -133,4 +139,3 @@ function displayErrorMessage(errorContent, message){
    errorContent.innerHTML= "";
    }, 2000);
 }
-
