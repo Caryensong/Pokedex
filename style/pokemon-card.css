@@ -1,15 +1,23 @@
-.poke_cards_container {
-  position: fixed;
-  top: 0;
-  background-color: #148d83af;
+.poke_card_content{
+ background-color: #148d83af;
   width: 100%;
   height: 100%;
-  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; 
+  position: fixed;
+  top: 0;
+  z-index: 3;
 }
+
+.poke_cards_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 50;
+}
+
 .poke_cards {
   width: 320px;
   height: 430px;

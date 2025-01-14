@@ -2,8 +2,9 @@
 async function openCard(i) {
    currentIndex = i;
    document.getElementById('bodyId').style.overflow="hidden";
-   let cardContentRef = document.getElementById('pokeCardsContainer');
+   let cardContentRef = document.getElementById('overlay');
    cardContentRef.classList.remove("display_none");
+   cardContentRef.classList.add("poke_card_content");
 
    let pokeData= await fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`);
    pokeIndexArr = await pokeData.json();
@@ -150,7 +151,8 @@ function navContentID() {
 }
 
 function closePokeCard(){
-   let closeCardContent = document.getElementById('pokeCardsContainer');
-   closeCardContent.classList.toggle('display_none');
+   let closeCardContent = document.getElementById('overlay');
+   closeCardContent.classList.add('display_none');
+
    document.getElementById('bodyId').style.overflow = "auto";
 }
