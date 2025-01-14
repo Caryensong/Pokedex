@@ -87,21 +87,30 @@ function getSearchValue(){
    let errorContent = document.getElementById('errorContent');
    let index = pokedexArr.findIndex(pokemon => pokemon.name.toLowerCase().includes(searchValue));
 
-   if (!searchValue) {
-      errorContent.innerText = "Please enter a Pokémon name!";
-      setTimeout(() => {
-          errorContent.innerText= "";
-      }, 2000);
+   if (handleEmptySearch(searchValue, errorContent)) {
       return;
-  }
+   }
 
    if (index != -1) {
       openCard(index);
    }else{
-      errorContent.innerHTML += `"${searchValue}" not found`
-      setTimeout(() => {
-      errorContent.innerHTML= "";
-      }, 2000);
+      displayErrorMessage(errorContent,`"${searchValue}" not found` );
    }
    document.getElementById('searchInput').value = "";
 }
+
+function handleEmptySearch(searchValue, errorContent){
+   if (!searchValue) {
+      displayErrorMessage(errorContent, "Please enter a Pokémon name!");
+      return true;
+  }
+  return false
+}
+
+function displayErrorMessage(errorContent, message){
+   errorContent.innerText = message;
+   setTimeout(() => {
+   errorContent.innerHTML= "";
+   }, 2000);
+}
+
