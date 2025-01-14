@@ -136,3 +136,33 @@ background-color: #cecccc7a;
   width: 135px;
   text-align: center;
  }
+
+ /* responsive */
+
+ @media (max-width:451px){
+  .input_box {
+    position: absolute;
+    top: 35px;
+    width: 145px;
+    height: 140px;
+    background-color: #ffff;
+    border-radius: 100%;
+    border: 20px solid #000000;
+}
+}
+
+@media (max-width:351px){
+  .input_box {
+    position: absolute;
+    top: 55px;
+    width: 145px;
+    height: 140px;
+    background-color: #ffff;
+    border-radius: 100%;
+    border: 20px solid #000000;
+}
+}
+
+
+
+ 
