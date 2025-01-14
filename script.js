@@ -3,12 +3,16 @@ let pokeIndexArr =[];
 let currentIndex = 0;
 let currentPokemon= 20;
 
-function init(currentPokemon){ 
-   fetchDataJson(currentPokemon);
+
+async function init(currentPokemon) { 
+   await fetchDataJson(currentPokemon);
 }
 
-function loadMore(){
+async function loadMore() {
+   currentPokemon += 20;  
    openLoadingScreen();
+   await init(currentPokemon);
+   closeLoadingScreen();
 }
 
 async function fetchDataJson(currentPokemon) { 
@@ -39,13 +43,12 @@ function getTypeElements(index){
 function openLoadingScreen(){
    let loadingScreenRef = document.getElementById('loadingScreen');
    loadingScreenRef.classList.add('load_screen');
-   document.getElementById('bodyId').style.overflow="hidden";
+   document.getElementById('bodyId').style.overflow="hidden";   
    loadingScreenRef.innerHTML = getLoadingscreen();
 
    let progressBar = document.getElementById('loadingProgressbar');
    let width = 0;
-   currentPokemon += 20;
-   init(currentPokemon);   
+ 
    renderProgressBar(progressBar, width);
 }
 
@@ -59,11 +62,8 @@ function renderProgressBar(progressBar, width){
 
       if(width >= 300){
          clearInterval(interval);
-         setTimeout(() =>{
-            closeLoadingScreen();
-         }, 1000);
      }
-   },1000);
+   },2500);
 }
 
 function renderLoadingRotateY(width){

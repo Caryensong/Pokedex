@@ -23,7 +23,7 @@ function getCardElementTemplate(type){
 `
 }
 
- function getPokeCardTemplate(i, pokemon, pokeImg, pokeIndexArr, type){
+function getPokeCardTemplate(i, pokemon, pokeImg, pokeIndexArr, type){
    return `
     <div onclick="event.stopPropagation()" id="pokeCardsContainer" class="poke_cards_box">
    <img onclick="slideButton(-1)" class="back_file hover" src="./assets/icon/back_icon.png" alt="back">
@@ -84,37 +84,37 @@ function getCardElementTemplate(type){
    `
  }
 
- function getBaseNameTemplate(stat){
+function getBaseNameTemplate(stat){
    return `<span class="span_title">${stat.stat.name}</span>`
- }
+}
 
- function getBaseProgressbarTemplate(stat){
+function getBaseProgressbarTemplate(stat){
    return`<div class="progress_bar"style="width: ${stat.base_stat}%">${stat.base_stat}%</div>`
- }
+}
 
- function getAbilitiesTemmplate(ability, effect){
+function getAbilitiesTemmplate(ability, effect){
    return`
    <div class="abilites_content_title">
       <span class="abilities_title">${ability}</span>
       <span class="ability_text">${effect}</span>
    </div>
    `
- }
+}
 
- function getMovesTemplate(move){
+function getMovesTemplate(move){
    return`
    <span class="move_text">${move.move.name},</span>
    `
- }
+}
 
- function getLoadingscreen(){
-return `
- <div class="loading_bar_content">
-   <p>LOADING ...</p>
-   <div class="loadingProgressbar">
+function getLoadingscreen(){
+   return `
+   <div class="loading_bar_content">
+      <p>LOADING ...</p>
+      <div class="loadingProgressbar">
       <div id="loadingProgressbar" style="width: 0;  background-color: #b68603;"></div>
       <img class="load_img" style="transition: 0;"src="./assets/loading_img.png" alt="POKEMON">
+      </div>
    </div>
- </div>
 `
- }
+}
