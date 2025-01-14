@@ -112,7 +112,11 @@ function closeLoadingScreen(){
 
 async function showFilteredResults(filterValueArr) { 
    let mainRef = document.getElementById('mainContainer');
+   let loadMoreBtn = document.getElementById('loadMoreBtn');
+   let backBtn = document.getElementById('backBtn');
    mainRef.innerHTML= "";
+   loadMoreBtn.classList.add('display_none');
+   backBtn.classList.remove('display_none');
   
    for (let i = 0; i < filterValueArr.length; i++) {
       let valueIndex = filterValueArr[i].originalIndex;
@@ -138,4 +142,15 @@ function displayErrorMessage(errorContent, message){
    setTimeout(() => {
    errorContent.innerHTML= "";
    }, 2000);
+}
+
+function backToContent(){
+   let mainRef = document.getElementById('mainContainer');
+   let loadMoreBtn = document.getElementById('loadMoreBtn');
+   let backBtn = document.getElementById('backBtn');
+   mainRef.innerHTML= "";
+   loadMoreBtn.classList.remove('display_none');
+   backBtn.classList.add('display_none');
+   currentIndex= 0;
+   init();
 }
