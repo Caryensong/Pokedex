@@ -9,8 +9,6 @@ function init(currentPokemon){
 
 function loadMore(){
    openLoadingScreen();
-   currentPokemon += 20;
-   init(currentPokemon);  
 }
 
 async function fetchDataJson(currentPokemon) { 
@@ -46,6 +44,8 @@ function openLoadingScreen(){
 
    let progressBar = document.getElementById('loadingProgressbar');
    let width = 0;
+   currentPokemon += 20;
+   init(currentPokemon);   
    renderProgressBar(progressBar, width);
 }
 
