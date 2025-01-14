@@ -174,12 +174,12 @@ a.active_btn{
   display: flex;
   flex-direction: column;
   z-index: 200;
-  width: 90%;
+  width: 50%;
 }
 
 .progressbar_box {
   display: flex;
-  width: 100%;
+  width: 50%;
   gap: 2px;
   flex-direction: column;
 }
@@ -343,7 +343,7 @@ a {
 }
 
 .base_status_content {
-  width: 125%;
+  width: 75%;
 }
 
 .content_box1 {
