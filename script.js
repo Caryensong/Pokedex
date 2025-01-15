@@ -93,7 +93,7 @@ function closeLoadingScreen(){
 
    let filterValueArr = pokedexArr
    .map((pokemon, index) => ({ pokemon, originalIndex: index })) 
-   .filter(item => item.pokemon.name.toLowerCase().includes(searchValue));
+   .filter(item => item.pokemon.name.toLowerCase().startsWith(searchValue));
 
    if (handleEmptySearch(searchValue, errorContent)) {
       return;
