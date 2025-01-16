@@ -53,8 +53,8 @@ function getPokeCardTemplate(i, pokemon, pokeImg, pokeIndexArr, type){
 
             <div class="span_content_title">
                <span class="span_text">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</span>
-               <span class="span_text">${pokeIndexArr.height} m</span>
-               <span class="span_text">${pokeIndexArr.weight} kg</span>
+               <span class="span_text">${pokeIndexArr.height}0 cm</span>
+               <span class="span_text">${pokeIndexArr.weight}00 g</span>
                <span id="abilitiesSpan${i}" class="span_text"></span>
             </div>
          </div>
