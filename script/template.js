@@ -1,8 +1,12 @@
-function  getPokedexTemplate(pokemon, i, img, type){
+function  getPokedexTemplate(pokemon, i, img, type, types){
+   const gradient = types.length > 1
+   ? `linear-gradient(to right, var(--${types[0]}), var(--${types[1]}))`
+   : `linear-gradient(to right, var(--${types[0]}), var(--${types[0]}))`;
+
    return `
    <div onclick="openCard(${i})" class="pokemon_box">
-           <div class="box_headline ${type.name}"></div>
-            <div class="pokeimg_bg ${type.name}"></div>
+           <div class="box_headline" style="background: ${gradient};"></div>
+            <div class="pokeimg_bg" style="background: ${gradient};"></div>
             <img class="pokeimg_b_img" src="./assets/icon/${type.name}_icon.png" alt="${type.name}">
             <img class="pokemon_img" src="${img.front_default}" alt="Pokemon">
              <span class="poke_Name"># ${i +1} ${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</span>

@@ -85,55 +85,24 @@
    top: -160px;
 }
 
-.grass{
-   background-image: linear-gradient(to right, #e0fdf6 , rgb(70, 160, 131));
-}
-
-.water{
-   background-image: linear-gradient(to right,#94b7d6 , rgb(61, 88, 128));
-}
-.fire{
-   background-image: linear-gradient(to right, #f59842 , rgb(253, 71, 71));
-}
-
-.bug{
-   background-image: linear-gradient(to right, rgb(72, 168, 72) , rgb(157, 197, 10));
-}
-.normal{
-   background-image: linear-gradient(to right, rgb(245, 188, 83) , rgb(156, 62, 18));
-}
-.poison{
-   background-image: linear-gradient(to right, rgb(204, 139, 241) , rgb(124, 26, 100));
-}
-.electric{
-   background-image: linear-gradient(to right, rgb(240, 238, 114) , rgb(255, 209, 2));
-}
-.ground{
-   background-image: linear-gradient(to right, rgb(212, 160, 16) , rgb(121, 70, 3));
-}
-.fairy{
-   background-image: linear-gradient(to right, rgb(248, 204, 241) , rgb(255, 87, 157));
-}
-.fighting{
-   background-image: linear-gradient(to right, rgb(224, 191, 141) , rgb(85, 51, 1));
-}
-.psychic{
-   background-image: linear-gradient(to right, rgb(224, 191, 141) , rgb(173, 118, 0));
-}
-.rock{
-   background-image: linear-gradient(to right, rgb(224, 191, 141) , rgb(173, 118, 0));
-}
-.ghost{
-   background-image: linear-gradient(to right, rgb(138, 85, 182) , rgb(26, 26, 26));
-}
-.ice{
-   background-image: linear-gradient(to right, rgb(228, 247, 252) , rgb(0, 228, 216));
-}
-.dragon{
-   background-image: linear-gradient(to right,#94af56, rgb(2, 158, 163));
-}
-.dark{
-   background-image: linear-gradient(to right,#3b3b3b, rgb(16, 71, 73));
+:root {
+   --grass: rgb(70, 160, 131);
+   --water: rgb(61, 88, 128);
+   --fire: rgb(253, 71, 71);
+   --bug: rgb(157, 197, 10);
+   --normal: rgb(156, 62, 18);
+   --flying: rgb(156, 208, 243);
+   --poison: rgb(60, 56, 77);
+   --ground: #704000;
+   --fairy: #fca0d6;
+   --fighting: #6b4f02;
+   --psychic:#c99301;
+   --rock: #c99301;
+   --ice:#92dde2;
+   --electric:#fa9006;
+   --ghost:  #272623;
+   --dragon:#94af56;
+   --dark: #181817;
 }
 
 .grass_element{background-color: #46d1b1;

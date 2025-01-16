@@ -22,9 +22,9 @@ async function renderPokemon(startIndex, count) {
       let pokeData= await fetch(`https://pokeapi.co/api/v2/pokemon/${i + 1}`);
       pokeIndexArr = await pokeData.json();
       let pokeImg = pokeIndexArr.sprites.other.dream_world;
-      let pokeType = pokeIndexArr.types[0].type;
-
-      mainRef.innerHTML += getPokedexTemplate(pokedexArr[i], i, pokeImg, pokeType);
+      let pokeType = pokeIndexArr.types[0].type;   
+      let pokeTypes = pokeIndexArr.types.map(type => type.type.name);
+      mainRef.innerHTML += getPokedexTemplate(pokedexArr[i], i, pokeImg, pokeType, pokeTypes);
       getTypeElements(i, pokeIndexArr );
    };
    currentIndex += count;
