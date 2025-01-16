@@ -123,7 +123,8 @@ async function showFilteredResults(filterValueArr) {
       pokeIndexArr = await pokeData.json();
       let pokeImg = pokeIndexArr.sprites.other.dream_world;
       let pokeType = pokeIndexArr.types[0].type;
-      mainRef.innerHTML += getPokedexTemplate(pokedexArr[valueIndex], valueIndex, pokeImg, pokeType);
+      let pokeTypes = pokeIndexArr.types.map(type => type.type.name);
+      mainRef.innerHTML += getPokedexTemplate(pokedexArr[valueIndex], valueIndex, pokeImg, pokeType, pokeTypes);
       getTypeElements(valueIndex, pokeIndexArr);
    };
 }
